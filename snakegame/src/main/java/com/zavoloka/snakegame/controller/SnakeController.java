@@ -15,8 +15,13 @@ public class SnakeController {
 
     @GetMapping("/snake")
     public String getSnake(Model model) {
+        // Retrieve all snakes from the repository
         Iterable<Snake> snakes = snakeRepository.findAll();
+
+        // Add the snakes to the model, making them available to the view
         model.addAttribute("snakes", snakes);
+
+        // Return the name of the view template (assuming "snake.html")
         return "snake";
     }
 }
